@@ -1,0 +1,8 @@
+\documentclass[uplatex,8pt]{jsarticle}
+\usepackage{counttop}
+\begin{document}
+\catcode`,=13
+\def,{\counttop:}
+\include{data2}
+\countshow
+\end{document}

@@ -1,0 +1,87 @@
+% 1 14 514 1919 810 334 のような数値のリストが有って、
+% \counttop1 \counttop14 \counttop514 ...のように
+% することで、最上位の数字をカウントするLaTeXプログラム?
+
+\newcounter{hm@count@one}\setcounter{hm@count@one}{0}
+\newcounter{hm@count@two}\setcounter{hm@count@two}{0}
+\newcounter{hm@count@three}\setcounter{hm@count@three}{0}
+\newcounter{hm@count@four}\setcounter{hm@count@four}{0}
+\newcounter{hm@count@five}\setcounter{hm@count@five}{0}
+\newcounter{hm@count@six}\setcounter{hm@count@six}{0}
+\newcounter{hm@count@seven}\setcounter{hm@count@seven}{0}
+\newcounter{hm@count@eight}\setcounter{hm@count@eight}{0}
+\newcounter{hm@count@nine}\setcounter{hm@count@nine}{0}
+
+\def\counttop:#1{%
+  \ifx#11\relax\stepcounter{hm@count@one}\else
+    \ifx#12\relax\stepcounter{hm@count@two}\else
+      \ifx#13\relax\stepcounter{hm@count@three}\else
+        \ifx#14\relax\stepcounter{hm@count@four}\else
+          \ifx#15\relax\stepcounter{hm@count@five}\else
+            \ifx#16\relax\stepcounter{hm@count@six}\else
+              \ifx#17\relax\stepcounter{hm@count@seven}\else
+                \ifx#18\relax\stepcounter{hm@count@eight}\else
+                  \ifx#19\relax\stepcounter{hm@count@nine}\else
+                    \relax\fi\fi\fi\fi\fi\fi\fi\fi\fi\relax#1}
+
+\def\countshow{%
+\newcounter{hm@count@sum}\setcounter{hm@count@sum}{0}
+\addtocounter{hm@count@sum}{\value{hm@count@one}}
+\addtocounter{hm@count@sum}{\value{hm@count@two}}
+\addtocounter{hm@count@sum}{\value{hm@count@three}}
+\addtocounter{hm@count@sum}{\value{hm@count@four}}
+\addtocounter{hm@count@sum}{\value{hm@count@five}}
+\addtocounter{hm@count@sum}{\value{hm@count@six}}
+\addtocounter{hm@count@sum}{\value{hm@count@seven}}
+\addtocounter{hm@count@sum}{\value{hm@count@eight}}
+\addtocounter{hm@count@sum}{\value{hm@count@nine}}
+\textbf{\textsf{RESULT}}:\\
+\textbf1: \the\value{hm@count@one}\hfill
+\textbf2: \the\value{hm@count@two}\hfill
+\textbf3: \the\value{hm@count@three}\hfill
+\textbf4: \the\value{hm@count@four}\hfill
+\textbf5: \the\value{hm@count@five}\hfill
+\textbf6: \the\value{hm@count@six}\hfill
+\textbf7: \the\value{hm@count@seven}\hfill
+\textbf8: \the\value{hm@count@eight}\hfill
+\textbf9: \the\value{hm@count@nine}\\
+\textbf{TOTAL}: \the\value{hm@count@sum}\par
+\newcounter{hm@temp}
+\setcounter{hm@temp}{\value{hm@count@one}}\multiply \c@hm@temp 1000
+\newcounter{hm@count@temp@one}\setcounter{hm@count@temp@one}{\value{hm@temp}}
+\setcounter{hm@temp}{\value{hm@count@two}}\multiply \c@hm@temp 1000
+\newcounter{hm@count@temp@two}\setcounter{hm@count@temp@two}{\value{hm@temp}}
+\setcounter{hm@temp}{\value{hm@count@three}}\multiply \c@hm@temp 1000
+\newcounter{hm@count@temp@three}\setcounter{hm@count@temp@three}{\value{hm@temp}}
+\setcounter{hm@temp}{\value{hm@count@four}}\multiply \c@hm@temp 1000
+\newcounter{hm@count@temp@four}\setcounter{hm@count@temp@four}{\value{hm@temp}}
+\setcounter{hm@temp}{\value{hm@count@five}}\multiply \c@hm@temp 1000
+\newcounter{hm@count@temp@five}\setcounter{hm@count@temp@five}{\value{hm@temp}}
+\setcounter{hm@temp}{\value{hm@count@six}}\multiply \c@hm@temp 1000
+\newcounter{hm@count@temp@six}\setcounter{hm@count@temp@six}{\value{hm@temp}}
+\setcounter{hm@temp}{\value{hm@count@seven}}\multiply \c@hm@temp 1000
+\newcounter{hm@count@temp@seven}\setcounter{hm@count@temp@seven}{\value{hm@temp}}
+\setcounter{hm@temp}{\value{hm@count@eight}}\multiply \c@hm@temp 1000
+\newcounter{hm@count@temp@eight}\setcounter{hm@count@temp@eight}{\value{hm@temp}}
+\setcounter{hm@temp}{\value{hm@count@nine}}\multiply \c@hm@temp 1000
+\newcounter{hm@count@temp@nine}\setcounter{hm@count@temp@nine}{\value{hm@temp}}
+\divide \c@hm@count@temp@one \c@hm@count@sum
+\divide \c@hm@count@temp@two\c@hm@count@sum
+\divide \c@hm@count@temp@three \c@hm@count@sum
+\divide \c@hm@count@temp@four \c@hm@count@sum
+\divide \c@hm@count@temp@five \c@hm@count@sum
+\divide \c@hm@count@temp@six \c@hm@count@sum
+\divide \c@hm@count@temp@seven \c@hm@count@sum
+\divide \c@hm@count@temp@eight \c@hm@count@sum
+\divide \c@hm@count@temp@nine \c@hm@count@sum
+\textbf{\textsf{RATIO}}:\\
+\textbf1: \the\value{hm@count@temp@one}\hfill
+\textbf2: \the\value{hm@count@temp@two}\hfill
+\textbf3: \the\value{hm@count@temp@three}\hfill
+\textbf4: \the\value{hm@count@temp@four}\hfill
+\textbf5: \the\value{hm@count@temp@five}\hfill
+\textbf6: \the\value{hm@count@temp@six}\hfill
+\textbf7: \the\value{hm@count@temp@seven}\hfill
+\textbf8: \the\value{hm@count@temp@eight}\hfill
+\textbf9: \the\value{hm@count@temp@nine}\\
+}
